@@ -115,3 +115,98 @@ class test_victory_check(unittest.TestCase):
 
         self.assertEqual(check_victory(board1), 1)
         self.assertEqual(check_victory(board2), 2)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def test_horizontal_victory_bottom_left(self):
+        '''Tests a board which contains a horizontal win at the bottom left returns a win'''
+        board1 = self.empty_board
+        board2 = self.empty_board
+        
+        for i in range(4):
+            board1[i][0] = 1
+            board2[i][0] = 2
+
+        self.assertEqual(check_victory(board1), 1)
+        self.assertEqual(check_victory(board2), 2)
+
+    def test_horizontal_victory_bottom_right(self):
+        '''Tests a board which contains a horizontal win at the bottom right returns a win'''
+        board1 = self.empty_board
+        board2 = self.empty_board
+        
+        for i in range(3, 7):
+            board1[i][0] = 1
+            board2[i][0] = 2
+
+        self.assertEqual(check_victory(board1), 1)
+        self.assertEqual(check_victory(board2), 2)
+
+    def test_horizontal_victory_top_left(self):
+        '''Tests a board which contains a horizontal win at the top left returns a win'''
+        board1 = self.empty_board
+        board2 = self.empty_board
+
+        for i in range(2, 6):
+            board1[i][5] = 1
+            board2[i][5] = 2
+
+        self.assertEqual(check_victory(board1), 1)
+        self.assertEqual(check_victory(board2), 2)
+
+    def test_horizontal_victory_top_right(self):
+        '''Tests a board which contains a horizontal win at the top left returns a win'''
+        board1 = self.empty_board
+        board2 = self.empty_board
+
+        for i in range(3, 7):
+            board1[i][5] = 1
+            board2[i][5] = 2
+
+        self.assertEqual(check_victory(board1), 1)
+        self.assertEqual(check_victory(board2), 2)
+
+    def test_horizontal_victory_middle(self):
+        '''Tests a board which contains a horizontal win at the top left returns a win'''
+        board1 = self.empty_board
+        board2 = self.empty_board
+
+        for i in range(1, 5):
+            board1[i][3] = 1
+            board2[i][3] = 2
+
+        self.assertEqual(check_victory(board1), 1)
+        self.assertEqual(check_victory(board2), 2)
+
+    def test_no_victory_empty(self):
+        '''Tests no victory is returned for an empty board'''
+        self.assertEqual(check_victory(self.empty_board), 0)
+
+    def test_no_victory_full_board_no_victory(self):
+        '''Tests no victory is returned for a full board with no victory'''
+        board = self.empty_board
+
+        for i in range(0, 7, 2):
+            board[i]=[1, 1, 2, 2, 1, 1]
+        for i in range(1, 7, 2):
+            board[i]=[2, 2, 1, 1, 2, 2]
+
+        self.assertEqual(check_victory(board), 0)

@@ -2,7 +2,7 @@
 
 def check_column_victory(column):
     '''Checks a single column for a vertical victory
-    (param) column [int]*6 A column of the board
+    (param) column [int]*6: A column of the board
     (return) Will be 0 for no win, 1 for player 1 win, or 2 for player 2 win'''
     for i_start in range(3):
         start_owner = column[i_start]
@@ -19,18 +19,41 @@ def check_column_victory(column):
 
 def check_vertical_victory(board):
     '''Checks an entire board for a vertical victory
-    (param) board [[int]*6]*7 A board
+    (param) board [[int]*6]*7: A board
     (return) Will be 0 for no win, 1 for player 1 win, or 2 for player 2 win'''
     for column in board:
         column_victory = check_column_victory(column)
         if column_victory:
             return column_victory
 
+def check_horizontal_victory(board):
+    '''Checks an entire board for a horizontal victory
+    (param) board [[int]*6]*7: A board
+    (return) Will be 0 for no win, 1 for player 1 win, or 2 for player 2 win'''
+    for i_row in range(6):
+        for i_start in range(4):
+            start_owner = board[i_start][i_row]
+
+            if not start_owner:
+                continue
+            
+            for i_next in range(i_start, i_start+4):
+                if board[i_next][i_row] != start_owner:
+                    break
+            else:
+                return start_owner
+
+    return 0
+
 def check_victory(board):
     '''Checks an entire board for any type of victory
-    (param) board [[int]*6]*7 A board
+    (param) board [[int]*6]*7: A board
     (return) Will be 0 for no win, 1 for player 1 win, or 2 for player 2 win'''
     victory = check_vertical_victory(board)
+    if victory:
+        return victory
+
+    victory = check_horizontal_victory(board)
     if victory:
         return victory
 
