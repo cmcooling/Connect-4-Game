@@ -49,7 +49,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests no victory is returned for an empty board'''
         self.assertEqual(check_victory(self.empty_board), 0)
 
-    def test_no_victory_full_board_no_victory(self):
+    def test_full_board_draw(self):
         '''Tests no victory is returned for a full board with no victory'''
         board = self.empty_board
 
@@ -58,13 +58,13 @@ class test_victory_check(unittest.TestCase):
         for i in range(1, 7, 2):
             board[i] = [2, 2, 1, 1, 2, 2]
 
-        self.assertEqual(check_victory(board), 0)
+        self.assertEqual(check_victory(board), -1)
 
     def test_vertical_victory_bottom_left(self):
         '''Tests a board which contains a vertical win at the bottom left returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         for i in range(4):
             board1[0][i] = 1
             board2[0][i] = 2
@@ -76,7 +76,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests a board which contains a vertical win at the bottom right returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         for i in range(4):
             board1[6][i] = 1
             board2[6][i] = 2
@@ -88,7 +88,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests a board which contains a vertical win at the top left returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         for i in range(2):
             board1[0][i] = 2
             board2[0][i] = 1
@@ -104,7 +104,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests a board which contains a vertical win at the top left returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         for i in range(2):
             board1[6][i] = 2
             board2[6][i] = 1
@@ -120,7 +120,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests a board which contains a vertical win at the top left returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         board1[3][0] = 2
         board2[3][0] = 1
 
@@ -135,7 +135,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests a board which contains a horizontal win at the bottom left returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         for i in range(4):
             board1[i][0] = 1
             board2[i][0] = 2
@@ -147,7 +147,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests a board which contains a horizontal win at the bottom right returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         for i in range(3, 7):
             board1[i][0] = 1
             board2[i][0] = 2
@@ -195,7 +195,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests a board which contains a horizontal win at the bottom left returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         for i in range(4):
             board1[i][i] = 1
             board2[i][i] = 2
@@ -207,7 +207,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests a board which contains a horizontal win at the bottom right returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         for i in range(4):
             board1[3 + i][i] = 1
             board2[3 + i][i] = 2
@@ -255,7 +255,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests a board which contains a horizontal win at the bottom left returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         for i in range(4):
             board1[i][3 - i] = 1
             board2[i][3 - i] = 2
@@ -267,7 +267,7 @@ class test_victory_check(unittest.TestCase):
         '''Tests a board which contains a horizontal win at the bottom right returns a win'''
         board1 = self.empty_board
         board2 = self.empty_board
-        
+
         for i in range(4):
             board1[3 + i][3 - i] = 1
             board2[3 + i][3 - i] = 2
