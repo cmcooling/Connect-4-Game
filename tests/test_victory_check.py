@@ -310,3 +310,4 @@ class test_victory_check(unittest.TestCase):
 
         self.assertEqual(check_victory(board1), 1)
         self.assertEqual(check_victory(board2), 2)
+    
