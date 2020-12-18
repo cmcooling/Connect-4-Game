@@ -3,30 +3,35 @@ from board_printer import print_board
 import time
 from exceptions import InvalidMoveException
 from victory_check import check_victory
+from function_timeout import timeout
 
 
-def run_game(name_1, name_2, function_1, function_2, print_output=True, move_duration=0):
+def run_game(name_1, name_2, function_1, function_2, print_output=True, move_duration=0, max_move_time=0, randomise_fist_player=True):
     '''Runs the game
     (param) name_1 (string): The name of the first player
     (param) name_1 (string): The name of the second player
     (param) function_1 (function): The logic function of the first player
-    (param) function_2 (function): The logic function of the second player
+    (param) print_output (bool)(optional, default=True): If the output will be printed
+    (param) move_duration (float)(optional, default=0): The time the code will pause for each move
+    (param) max_move_time (float)(optional, default=0): The maximum time a move may be considered for in s(0 means it won't be limited)
+    (param) randomise_first_player (bool)(optional, default=True): Whether the first player will be randomly chosen
     (return) Will be 0 for no win, 1 for player 1 win, or 2 for player 2 win'''
     # Create the board
     board = [[0] * 6 for i in range(7)]
 
     # Possibly swap the order
-    swap_order = random.randint(0, 1)
+    swap_order = random.randint(0, 1) and randomise_fist_player
+
     if swap_order:
         names = [name_2, name_1]
         functions = [function_2, function_1]
         player_numbers = [2, 1]
+        player_names = [name_2, name_1]
     else:
         names = [name_1, name_2]
         functions = [function_1, function_2]
         player_numbers = [1, 2]
-
-    player_names = [name_1, name_2]
+        player_names = [name_1, name_2]
 
     if print_output:
         print(names[0] + " will go first")
@@ -34,12 +39,24 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
         time.sleep(move_duration)
 
     for i in range(42):
-        # Process turn of the player going first
         try:
-            victory = process_turn(functions[i % 2], player_numbers[i % 2])
+            if max_move_time:
+                current_logic = timeout(timeout=1)(functions[i % 2])
+            victory = process_turn(board, current_logic, player_numbers[i % 2], print_output)
         except InvalidMoveException:
             if print_output:
-                print("{} made an invalid move, so {} wins!")
+                print("{} made an invalid move, so {} wins!".format(player_names[i % 2], player_names[(i + 1) % 2]))
+            if player_numbers[i % 2] == 1:
+                return 2
+            else:
+                return 1
+        except TimeoutError:
+            if print_output:
+                print("{} took too long to make a move, so {} wins!".format(player_names[i % 2], player_names[(i + 1) % 2]))
+            if player_numbers[i % 2] == 1:
+                return 2
+            else:
+                return 1
 
         if print_output:
             print_board(board)
@@ -47,6 +64,8 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
 
         if victory:
             return(victory)
+
+        time.sleep(move_duration)
 
 
 def process_turn(board, move_logic, player_number, print_output):
@@ -91,6 +110,6 @@ def add_token(board, i_column, player_number):
 def print_victory(victory, names):
     '''Prints if there's a victory'''
     if victory > 0:
-        print(names[victory + 1] + " won the game by connecting 4!")
+        print(names[victory - 1] + " won the game by connecting 4!")
     elif victory < 0:
         print("The game ended in a draw as the board was full!")

@@ -2,6 +2,7 @@ import unittest
 from exceptions import InvalidMoveException
 from run_game import process_turn
 from run_game import add_token
+from run_game import run_game
 
 
 class test_run_game(unittest.TestCase):
@@ -24,13 +25,13 @@ class test_run_game(unittest.TestCase):
         board = self.empty_board
 
         with self.assertRaises(InvalidMoveException):
-            process_turn(board, turn_logic_negative_index, 1)
+            process_turn(board, turn_logic_negative_index, 1, False)
 
         with self.assertRaises(InvalidMoveException):
-            process_turn(board, turn_logic_large_index, 1)
+            process_turn(board, turn_logic_large_index, 1, False)
 
         with self.assertRaises(InvalidMoveException):
-            process_turn(board, turn_logic_non_integer_index, 1)
+            process_turn(board, turn_logic_non_integer_index, 1, False)
 
     def test_process_turn_modifies_board(self):
         '''Checks no victory is returned when there is no victory'''
@@ -38,7 +39,7 @@ class test_run_game(unittest.TestCase):
             return(0)
         board = self.empty_board
 
-        process_turn(board, turn_logic_zero, 1)
+        process_turn(board, turn_logic_zero, 1, False)
         self.assertListEqual(board[0], [1, 0, 0, 0, 0, 0])
         for column in board[1:6]:
             self.assertListEqual(column, [0] * 6)
@@ -49,7 +50,7 @@ class test_run_game(unittest.TestCase):
             return(0)
         board = self.empty_board
 
-        self.assertEqual(process_turn(board, turn_logic_zero, 1), 0)
+        self.assertEqual(process_turn(board, turn_logic_zero, 1, False), 0)
 
     def test_process_turn_victory(self):
         '''Checks a victory is returned when there is no victory'''
@@ -59,7 +60,7 @@ class test_run_game(unittest.TestCase):
         for i in range(1, 4):
             board[i][0] = 1
 
-        self.assertEqual(process_turn(board, turn_logic_zero, 1), 1)
+        self.assertEqual(process_turn(board, turn_logic_zero, 1, False), 1)
 
     def test_add_token_full_column_error(self):
         '''Checks adding a token to a full column raises an error'''
@@ -84,3 +85,11 @@ class test_run_game(unittest.TestCase):
         self.assertListEqual(board[0], [1, 2, 0, 0, 0, 0])
         for column in board[1:6]:
             self.assertListEqual(column, [0] * 6)
+
+    def test_run_game_timeout(self):
+        '''Tests when a move takes too long to process, an error is raised'''
+        def infinite_move_logic(board, player_number):
+            while True:
+                pass
+
+        self.assertEqual(run_game("A", "B", infinite_move_logic, infinite_move_logic, max_move_time=1, randomise_fist_player=False), 2)
