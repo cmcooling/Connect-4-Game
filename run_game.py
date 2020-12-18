@@ -4,6 +4,7 @@ import time
 from exceptions import InvalidMoveException
 from victory_check import check_victory
 from function_timeout import timeout
+import copy
 
 
 def run_game(name_1, name_2, function_1, function_2, print_output=True, move_duration=0, max_move_time=0, randomise_fist_player=True):
@@ -39,10 +40,15 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
         time.sleep(move_duration)
 
     for i in range(42):
+        # Create a new function with the timeout decorator added
+        if max_move_time:
+            current_logic = timeout(timeout=1)(functions[i % 2])
+        else:
+            current_logic = functions[i % 2]
+
+        # Take the current turn
         try:
-            if max_move_time:
-                current_logic = timeout(timeout=1)(functions[i % 2])
-            victory = process_turn(board, current_logic, player_numbers[i % 2], print_output)
+            victory = process_turn(board, current_logic, player_numbers[i % 2], player_names[i % 2], print_output)
         except InvalidMoveException:
             if print_output:
                 print("{} made an invalid move, so {} wins!".format(player_names[i % 2], player_names[(i + 1) % 2]))
@@ -59,8 +65,10 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
                 return 1
 
         if print_output:
+            print("X {}".format(name_1))
+            print("O {}".format(name_2))
             print_board(board)
-            print_victory(victory, player_names)
+            print_victory(victory, name_1, name_2)
 
         if victory:
             return(victory)
@@ -68,17 +76,20 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
         time.sleep(move_duration)
 
 
-def process_turn(board, move_logic, player_number, print_output):
+def process_turn(board, move_logic, player_number, player_name, print_output):
     '''Processes a turn for the specified player
     (param) board ([[int]*6]*7): A board
     (param) move_logic (function) The function which returns which column the token is to be added to
     (param) player_number The number of the player'''
 
+    # Copy the board so the original can't be modified
+    board_copy = copy.deepcopy(board)
+
     # Get the index of the column selected by the move logic
-    i_column_add = move_logic(board, player_number)
+    i_column_add = move_logic(board_copy, player_number)
 
     if print_output:
-        print("Player {} selects column {}".format(player_number, i_column_add))
+        print("Player {} selects column {}".format(player_name, i_column_add))
 
     # Check the value provided is valid
     if type(i_column_add) != int:
@@ -107,9 +118,11 @@ def add_token(board, i_column, player_number):
         raise InvalidMoveException("The provided column index was {}, which corresponded to a full column".format(i_column))
 
 
-def print_victory(victory, names):
+def print_victory(victory, name_1, name_2):
     '''Prints if there's a victory'''
-    if victory > 0:
-        print(names[victory - 1] + " won the game by connecting 4!")
+    if victory == 1:
+        print(name_1 + " won the game by connecting 4!")
+    elif victory == 2:
+        print(name_2 + " won the game by connecting 4!")
     elif victory < 0:
         print("The game ended in a draw as the board was full!")
