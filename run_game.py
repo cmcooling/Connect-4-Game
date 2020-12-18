@@ -18,22 +18,38 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
     # Possibly swap the order
     swap_order = random.randint(0, 1)
     if swap_order:
-        (name_1, name_2) = (name_2, name_1)
-        (function_1, function_2) = (function_2, function_1)
+        names = [name_2, name_1]
+        functions = [function_2, function_1]
+        player_numbers = [2, 1]
+    else:
+        names = [name_1, name_2]
+        functions = [function_1, function_2]
+        player_numbers = [1, 2]
+
+    player_names = [name_1, name_2]
 
     if print_output:
-        print(name_1 + " will go first")
+        print(names[0] + " will go first")
         print_board(board)
         time.sleep(move_duration)
 
-    winner = 0
+    for i in range(42):
+        # Process turn of the player going first
+        try:
+            victory = process_turn(functions[i % 2], player_numbers[i % 2])
+        except InvalidMoveException:
+            if print_output:
+                print("{} made an invalid move, so {} wins!")
 
-    while winner == 0:
-        # Process turn of player 1
-        process_turn(function_1)
+        if print_output:
+            print_board(board)
+            print_victory(victory, player_names)
+
+        if victory:
+            return(victory)
 
 
-def process_turn(board, move_logic, player_number):
+def process_turn(board, move_logic, player_number, print_output):
     '''Processes a turn for the specified player
     (param) board ([[int]*6]*7): A board
     (param) move_logic (function) The function which returns which column the token is to be added to
@@ -41,6 +57,9 @@ def process_turn(board, move_logic, player_number):
 
     # Get the index of the column selected by the move logic
     i_column_add = move_logic(board, player_number)
+
+    if print_output:
+        print("Player {} selects column {}".format(player_number, i_column_add))
 
     # Check the value provided is valid
     if type(i_column_add) != int:
@@ -67,3 +86,11 @@ def add_token(board, i_column, player_number):
             break
     else:
         raise InvalidMoveException("The provided column index was {}, which corresponded to a full column".format(i_column))
+
+
+def print_victory(victory, names):
+    '''Prints if there's a victory'''
+    if victory > 0:
+        print(names[victory + 1] + " won the game by connecting 4!")
+    elif victory < 0:
+        print("The game ended in a draw as the board was full!")
