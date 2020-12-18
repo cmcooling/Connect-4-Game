@@ -54,9 +54,9 @@ class test_victory_check(unittest.TestCase):
         board = self.empty_board
 
         for i in range(0, 7, 2):
-            board[i]=[1, 1, 2, 2, 1, 1]
+            board[i] = [1, 1, 2, 2, 1, 1]
         for i in range(1, 7, 2):
-            board[i]=[2, 2, 1, 1, 2, 2]
+            board[i] = [2, 2, 1, 1, 2, 2]
 
         self.assertEqual(check_victory(board), 0)
 
