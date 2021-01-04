@@ -15,34 +15,37 @@ In the following examples, ```x``` went first and won the game.
 Horizontal victory:
 
 ```
-
-
-
-
-
-x x x x o o o
+|               |
+|               |
+|               |
+|               |
+|               |
+| x x x x o o o |
+|---------------|
 ```
 
 Vertical victory:
 
 ```
-
-
-x
-x o
-x o
-x o
+|               |
+|               |
+| x             |
+| x o           |
+| x o           |
+| x o           |
+|---------------|
 ```
 
 Diaognal victory:
 
 ```
-
-
-        x
-      x o
-    x o x
-  x o x o
+|               |
+|               |
+|         x     |
+|       x o     |
+|     x o x     |
+|   x o x o     |
+|---------------|
 ```
 
 In the version of the game we will be playing, the first player will be randomly selected.
