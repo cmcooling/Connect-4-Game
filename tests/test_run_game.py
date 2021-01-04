@@ -3,7 +3,7 @@ from exceptions import InvalidMoveException
 from run_game import process_turn
 from run_game import add_token
 from run_game import run_game
-from game_logic_functions import methodical
+from strategies import methodical
 
 
 class test_run_game(unittest.TestCase):
