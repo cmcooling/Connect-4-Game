@@ -4,6 +4,52 @@
 
 This repository contains code which is used to run a game of Connect 4. The strategies employed by players may be specified in functions which can then be passed as arguments to the function which runs the game. A few sample strategies have been included.
 
+### Connect 4
+
+Connect 4 is a two-player game where players take turns adding tokens to a grid with 7 columns and six rows. Tokens fall to the lowest unoccupied space in the column they are added to. A player wins the game as soon as four of their tokens form a horizontal, vertical or diagonal line.
+
+![Connect 4 Box Art](https://github.com/coolernato/Connect-4-Game/blob/master/readme_resources/connect4_box.jpg?raw=true)
+
+In the following examples, ```x``` went first and won the game.
+
+Horizontal victory:
+
+```
+|               |
+|               |
+|               |
+|               |
+|               |
+| x x x x o o o |
+|---------------|
+```
+
+Vertical victory:
+
+```
+|               |
+|               |
+| x             |
+| x o           |
+| x o           |
+| x o           |
+|---------------|
+```
+
+Diaognal victory:
+
+```
+|               |
+|               |
+|         x     |
+|       x o     |
+|   o x o x     |
+|   x o x o     |
+|---------------|
+```
+
+In the version of the game we will be playing, the first player will be randomly selected.
+
 ## Running a Game
 
 The easiest way to run a game is by running the ```game_master.py``` file. This is currently set up to pit two of the sample strategies against each other. The output of the game should be visible in the terminal used to run the code. The output will include a turn by turn output of the game-state of the board and will announce a winner.
