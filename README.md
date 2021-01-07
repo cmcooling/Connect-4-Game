@@ -83,3 +83,4 @@ Other than losing the game normally, a strategy can forfeit a game in the follow
 * Returning an integer value which is less than 0 or greater than 6
 * Returning an integer relating to a column which is full
 * Taking more than 1s to return a value
+* Raising an exception when asked for a move
