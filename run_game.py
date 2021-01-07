@@ -1,7 +1,7 @@
 import random
 from board_printer import print_board
 import time
-from exceptions import InvalidMoveException
+from exceptions import InvalidMoveException, MoveExceptionError
 from victory_check import check_victory
 from function_timeout import timeout
 import copy
@@ -42,7 +42,7 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
     for i in range(42):
         # Create a new function with the timeout decorator added
         if max_move_time:
-            current_logic = timeout(timeout=1)(functions[i % 2])
+            current_logic = timeout(timeout=max_move_time)(functions[i % 2])
         else:
             current_logic = functions[i % 2]
 
@@ -52,6 +52,13 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
         except InvalidMoveException:
             if print_output:
                 print("{} made an invalid move, so {} wins!".format(player_names[i % 2], player_names[(i + 1) % 2]))
+            if player_numbers[i % 2] == 1:
+                return 2
+            else:
+                return 1
+        except MoveExceptionError:
+            if print_output:
+                print("{} returned an error when asked for a move, so {} wins!".format(player_names[i % 2], player_names[(i + 1) % 2]))
             if player_numbers[i % 2] == 1:
                 return 2
             else:
@@ -76,17 +83,22 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
         time.sleep(move_duration)
 
 
-def process_turn(board, move_logic, player_number, player_name, print_output):
+def process_turn(board, strategy, player_number, player_name, print_output):
     '''Processes a turn for the specified player
     (param) board ([[int]*6]*7): A board
-    (param) move_logic (function) The function which returns which column the token is to be added to
+    (param) strategy (function) The function which returns which column the token is to be added to
     (param) player_number The number of the player'''
 
     # Copy the board so the original can't be modified
     board_copy = copy.deepcopy(board)
 
-    # Get the index of the column selected by the move logic
-    i_column_add = move_logic(board_copy, player_number)
+    try:
+        # Get the index of the column selected by the move logic
+        i_column_add = strategy(board_copy, player_number)
+    except TimeoutError:
+        raise
+    except Exception:
+        raise MoveExceptionError("Player {} raised an exception when asked for a move.")
 
     if print_output:
         print("Player {} selects column {}".format(player_name, i_column_add))

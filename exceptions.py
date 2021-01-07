@@ -4,3 +4,7 @@ class Connect4Error(Exception):
 
 class InvalidMoveException(Connect4Error):
     pass
+
+
+class MoveExceptionError(Connect4Error):
+    pass

@@ -89,12 +89,19 @@ class test_run_game(unittest.TestCase):
 
     def test_run_game_timeout(self):
         '''Tests when a move takes too long to process, an error is raised'''
-        def infinite_move_logic(board, player_number):
+        def infinite_strategy(board, player_number):
             while True:
                 pass
 
-        self.assertEqual(run_game("A", "B", infinite_move_logic, infinite_move_logic, max_move_time=1, randomise_fist_player=False), 2)
+        self.assertEqual(run_game("A", "B", infinite_strategy, infinite_strategy, max_move_time=1, randomise_fist_player=False), 2)
 
     def test_normal_victory(self):
         '''Tests a normal victory is achieved when four is connected'''
         self.assertEqual(run_game("A", "B", methodical.fill_left_right, methodical.fill_right_left, randomise_fist_player=False), 1)
+
+    def test_exception_victory(self):
+        '''Tests a victory is achieved when one strategy raises an exception'''
+        def exception_strategy(board, player_number):
+            raise ValueError("A dummy value error")
+
+        self.assertEqual(run_game("A", "B", methodical.fill_left_right, exception_strategy, randomise_fist_player=False), 1)
