@@ -1,17 +1,19 @@
+import copy
 import random
-from board_printer import print_board
 import time
 from exceptions import InvalidMoveException, MoveExceptionError
-from victory_check import check_victory
+
+from board_printer import print_board
 from function_timeout import timeout
-import copy
+from victory_check import check_victory
 
 
-def run_game(name_1, name_2, function_1, function_2, print_output=True, move_duration=0, max_move_time=0, randomise_fist_player=True):
+def run_game(name_1, name_2, function_1, function_2, print_output=True, move_duration=0, max_move_time=0, randomise_first_player=True):
     '''Runs the game
     (param) name_1 (string): The name of the first player
     (param) name_1 (string): The name of the second player
     (param) function_1 (function): The logic function of the first player
+    (param) function_2 (function): The logic function of the second player
     (param) print_output (bool)(optional, default=True): If the output will be printed
     (param) move_duration (float)(optional, default=0): The time the code will pause for each move
     (param) max_move_time (float)(optional, default=0): The maximum time a move may be considered for in s(0 means it won't be limited)
@@ -21,7 +23,7 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
     board = [[0] * 6 for i in range(7)]
 
     # Possibly swap the order
-    swap_order = random.randint(0, 1) and randomise_fist_player
+    swap_order = random.randint(0, 1) and randomise_first_player
 
     if swap_order:
         names = [name_2, name_1]

@@ -1,4 +1,7 @@
 def print_board(board):
+    '''
+    Print the provided board array to the screen.
+    '''
     for i_row in range(5, -1, -1):
         row = "|"
         for i_column in range(7):

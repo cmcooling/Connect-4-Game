@@ -1,6 +1,6 @@
 import unittest
-from victory_check import check_column_victory
-from victory_check import check_victory
+
+from victory_check import check_column_victory, check_victory
 
 
 class test_victory_check(unittest.TestCase):
