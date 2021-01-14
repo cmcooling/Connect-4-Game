@@ -1,8 +1,7 @@
 import unittest
 from exceptions import InvalidMoveException
-from run_game import process_turn
-from run_game import add_token
-from run_game import run_game
+
+from run_game import add_token, process_turn, run_game
 from strategies import methodical
 
 
@@ -93,15 +92,15 @@ class test_run_game(unittest.TestCase):
             while True:
                 pass
 
-        self.assertEqual(run_game("A", "B", infinite_strategy, infinite_strategy, max_move_time=1, randomise_fist_player=False), 2)
+        self.assertEqual(run_game("A", "B", infinite_strategy, infinite_strategy, max_move_time=1, randomise_first_player=False), 2)
 
     def test_normal_victory(self):
         '''Tests a normal victory is achieved when four is connected'''
-        self.assertEqual(run_game("A", "B", methodical.fill_left_right, methodical.fill_right_left, randomise_fist_player=False), 1)
+        self.assertEqual(run_game("A", "B", methodical.fill_left_right, methodical.fill_right_left, randomise_first_player=False), 1)
 
     def test_exception_victory(self):
         '''Tests a victory is achieved when one strategy raises an exception'''
         def exception_strategy(board, player_number):
             raise ValueError("A dummy value error")
 
-        self.assertEqual(run_game("A", "B", methodical.fill_left_right, exception_strategy, randomise_fist_player=False), 1)
+        self.assertEqual(run_game("A", "B", methodical.fill_left_right, exception_strategy, randomise_first_player=False), 1)

@@ -1,6 +1,6 @@
 '''Contains the definition of a decorator to timeout a function'''
-from threading import Thread
 import functools
+from threading import Thread
 
 
 def timeout(timeout):
