@@ -1,4 +1,4 @@
-from strategies import methodical, random_strategies
+from strategies import methodical, random_strategies, manual
 from run_game import run_game
 
 
