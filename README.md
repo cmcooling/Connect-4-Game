@@ -1,3 +1,5 @@
+![Tests](https://github.com/coolernato/Connect-4-Game/workflows/Tests/badge.svg)
+
 # Connect-4-Game
 
 ## Introduction
