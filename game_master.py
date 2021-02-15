@@ -8,7 +8,7 @@ from strategies import logan_strategy #logan_strategy.strategy - Logan Filipovic
 from strategies import jgstrat #jgstrat.from_middle - Jaidip Gill
 from strategies import Kaiyu_Hu #Kaiyu_Hu.dumb - Kaiyu Hu
 from New_strats import New_strat #New_strat.Strat - Zhen Liew
-from strategies import my_strategy #my_strategy.my_strategy - Mingze Ma         ***REQUIRES NUMPY INSTALLED***
+from strategies import easy_strategy #easy_strategy.my_strategy - Mingze Ma         ***REQUIRES NUMPY INSTALLED***
 from strategies import connect4_strategy #connect4_strategy.second_strategy - David Noyvert
 from strategies import mystrat #mystrat.beginner_strat - Minjoon Seo
 from strategies import sterge_tactic_variable_depth #sterge_tactic_variable_depth.sterge - Stergios Vlachopoulos
@@ -21,4 +21,4 @@ from run_game import run_game
 #   - Player 1 name "Left" and Player 2 name "Random".
 #   - Player 1 will use the methodical "fill_left_right" strategy while player two will use a random strategy
 #   - Pause 1 second between moves and timeout if a move takes more than 1 second
-run_game("Left", "Random", methodical.fill_left_right, random_strategies.random_simple, move_duration=-1, max_move_time=1)
+run_game("Left", "Random", easy_strategy.my_strategy, random_strategies.random_simple, move_duration=-1, max_move_time=1)
