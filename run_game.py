@@ -15,7 +15,7 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
     (param) function_1 (function): The logic function of the first player
     (param) function_2 (function): The logic function of the second player
     (param) print_output (bool)(optional, default=True): If the output will be printed
-    (param) move_duration (float)(optional, default=0): The time the code will pause for each move
+    (param) move_duration (float)(optional, default=0): The time the code will pause for each move. If negative, will wait for enter to be pressed
     (param) max_move_time (float)(optional, default=0): The maximum time a move may be considered for in s(0 means it won't be limited)
     (param) randomise_first_player (bool)(optional, default=True): Whether the first player will be randomly chosen
     (return) Will be 0 for no win, 1 for player 1 win, or 2 for player 2 win'''
@@ -39,7 +39,7 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
     if print_output:
         print(names[0] + " will go first")
         print_board(board)
-        time.sleep(move_duration)
+        time.sleep(max(move_duration, 0))
 
     for i in range(42):
         # Create a new function with the timeout decorator added
@@ -82,7 +82,10 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
         if victory:
             return(victory)
 
-        time.sleep(move_duration)
+        if move_duration >= 0:
+            time.sleep(move_duration)
+        else:
+            input("Press Enter to continue...")
 
 
 def process_turn(board, strategy, player_number, player_name, print_output):
