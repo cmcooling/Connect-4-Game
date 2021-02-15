@@ -12,6 +12,7 @@ from strategies import easy_strategy #easy_strategy.my_strategy - Mingze Ma     
 from strategies import connect4_strategy #connect4_strategy.second_strategy - David Noyvert
 from strategies import mystrat #mystrat.beginner_strat - Minjoon Seo
 from strategies import sterge_tactic_variable_depth #sterge_tactic_variable_depth.sterge - Stergios Vlachopoulos
+from strategies import strats #strat.strat - Lok Lau
 
 
 from run_game import run_game
