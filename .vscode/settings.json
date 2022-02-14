@@ -16,5 +16,6 @@
     "python.linting.flake8Args": [
         "--ignore=E501,C901"
     ],
-    "python.pythonPath": "C:\\Users\\cmcoo\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe"
+    "python.pythonPath": "C:\\Users\\cmcoo\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+    "terminal.integrated.fontSize": 24
 }
