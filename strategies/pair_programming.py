@@ -10,11 +10,11 @@ import copy
 
 
 def pair(board, player_number):
-    # STEP 2: Let's look one move ahead. If there's a move we can take that will make use win we want to take it
-    # Loop over the different indices you might chose to consider whether it resutls in a victory
+    # STEP 2: Let's look one move ahead. If there's a move we can take that will make us win we want to take it
+    # Loop over the different indices you might chose to consider whether it results in a victory
 
         # STEP 3: This should be inside the loop
-        # Let's see if any of the available columns wemight chose will cause us to win
+        # Let's see if any of the available columns we might chose will cause us to win
         # First, create a copy of the original board using board_copy = copy.deepcopy(board)
         # We can edit board_copy without altering the original baord variable
 
