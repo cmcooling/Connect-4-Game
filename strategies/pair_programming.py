@@ -1,6 +1,6 @@
 # This file is designed to be edited during a pair programming exercise in-class
 # Beginning with a naive random algorithm, your goal is to improve the strategy
-# There are sugested steps you might want to take. Begin with "STEP 1", the  proceed to "STEP 2" and so on (follow the step numbers, not the order they appear in the code)
+# There are suggested steps you might want to take. Begin with "STEP 1", the  proceed to "STEP 2" and so on (follow the step numbers, not the order they appear in the code)
 # You can chose to take other steps if you like
 # game_master.py is set up to play your code against a naive random strategy
 # Run game_master.py to test how your code does
@@ -16,7 +16,7 @@ def pair(board, player_number):
         # STEP 3: This should be inside the loop
         # Let's see if any of the available columns we might chose will cause us to win
         # First, create a copy of the original board using board_copy = copy.deepcopy(board)
-        # We can edit board_copy without altering the original baord variable
+        # We can edit board_copy without altering the original board variable
 
         # STEP 4: This should be inside the for loop
         # Use the add_token function from run_game to add one of your tokens to the currently selected row
@@ -25,7 +25,7 @@ def pair(board, player_number):
     
     # STEP 5: If the loop above doesn't return a value the strategy will return a random variable
     # The next step you take could be to consider if there are are any columns your opponent could go in to win and go there instead of them
-    # Have a go at implenting this yourselves, or taker another step you think would be helpful
+    # Have a go at implementing this yourselves, or taker another step you think would be helpful
 
     return(random.randint(0, 6))
 
