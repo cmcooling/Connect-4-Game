@@ -29,7 +29,7 @@ def assess(student_strategy):
 
     mark = 0.5 * (n_match - forfeits) / n_match + 0.5 * ((wins + 0.5 * draws) / n_match) ** 2
 
-    print("Results\nWins: {}\nLosses: {}\nForfeits: {}\nMark: {}".format(wins, losses, forfeits, mark))
+    print("Results\nWins: {}\nDraws: {}\nLosses: {}\nForfeits: {}\nMark: {}".format(wins, draws, losses, forfeits, mark))
 
 
 assess(random_strategies.random_simple)
