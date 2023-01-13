@@ -11,6 +11,7 @@ def assess(student_strategy):
     n_match = 1000
 
     wins = 0
+    draws = 0
     losses = 0
     forfeits = 0
 
@@ -19,12 +20,14 @@ def assess(student_strategy):
 
         if result[0] == 1:
             wins += 1
+        elif result[0] == 0:
+            draws += 1
         elif result[1]:
             forfeits += 1
         else:
             losses += 1
 
-    mark = 0.5 * (n_match - forfeits) / n_match + 0.5 * (wins / n_match) ** 2
+    mark = 0.5 * (n_match - forfeits) / n_match + 0.5 * ((wins + 0.5 * draws) / n_match) ** 2
 
     print("Results\nWins: {}\nLosses: {}\nForfeits: {}\nMark: {}".format(wins, losses, forfeits, mark))
 
