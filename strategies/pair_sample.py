@@ -43,7 +43,7 @@ def pair(board, player_number):
             return(index)
 
     # STEP 1
-    # Initialy asssume the move is invalid. Keeping drawing random numbers until we get one tat isn't invalid
+    # Initially assume the move is invalid. Keeping drawing random numbers until we get one that isn't invalid
     invalid = True
     while invalid:
         # Chose a random index to consider
