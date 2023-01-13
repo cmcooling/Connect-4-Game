@@ -95,4 +95,21 @@ Other than losing the game normally, a strategy can forfeit a game in the follow
 
 ## Assessment
 
-If you're using this resource as part of the I-Explore course, the final strategy you submit via Blackboard will be assessed. This will be done by pitting your strategy against a strategy which always picks a random move from a random non-full column. 1000 games will be played, with the player moving first determined randomly for each game. It will b tracked how many games end in a victory for you, a draw, a loss to the opponent without your strategy raising an exception, and the number of times your strategy forfeits by raising an exception.
+If you're using this resource as part of the I-Explore course, the final strategy you submit via Blackboard will be assessed. This will be done by pitting your strategy against a strategy which always picks a random move from a random non-full column. 1000 games will be played, with the player moving first determined randomly for each game. Your strategy will forfeit a game if it choses a column which is full, or takes more than 1s to make a move. It will be tracked how many games end in a victory for you, a draw, a loss to the opponent without your strategy raising an exception, and the number of times your strategy forfeits by raising an exception. The final mark you receive will be calculated as follows:
+
+$$M_{\%} = \left(\frac{1 - \frac{n_f}{1000} + \left(\frac{n_{w} + \frac{n_{d}}{2}}{1000}\right)^{2}}{2}\right) \times 100\% $$
+
+where $M_{\%}$ is your final mark in %, $n_{f}$ is the number of times your strategy forfeits a game, $n_{w}$ is the number of games your strategy wins a a game, and $n_{d}$ is the number of times your strategy draws. Some example marks include:
+
+* Your strategy forfeits every game: 0%
+* Your strategy loses every game without forfeiting: 50%
+* Your strategy wins half the games and loses half the games without forfeiting: 62.5%
+* Your strategy wins every game: 100%
+
+If you would like to test your strategy against the assessment, the code can be found in ```assessment.py```. It is currently set up to assess the ```random_simple``` strategy function in the file ```random.py``` in the ```strategies``` directory. You will need to set up the code to import your strategy and then modify the line:
+
+```python
+assess(random_strategies.random_simple)
+```
+
+so it passes your strategy function to the ```assess``` function as an argument instead of ```strategies.random_simple```. Assessing your strategy will allow you to view its performance and improve it.
