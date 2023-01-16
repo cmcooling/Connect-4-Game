@@ -13,5 +13,8 @@
     "editor.wordWrap": "on",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": ["--ignore=E501,C901"]
+    "python.linting.flake8Args": [
+        "--ignore=E501,C901"
+    ],
+    "notebook.output.textLineLimit": 1000
 }
