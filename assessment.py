@@ -32,4 +32,5 @@ def assess(student_strategy):
     print("Results\nWins: {}\nDraws: {}\nLosses: {}\nForfeits: {}\nMark: {}".format(wins, draws, losses, forfeits, mark))
 
 
-assess(random_strategies.random_simple)
+if __name__ == "__main__":
+    assess(random_strategies.simple)
