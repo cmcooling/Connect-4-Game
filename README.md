@@ -64,7 +64,12 @@ This asks you to input a move yourself as an integer and press enter. ```max_mov
 
 ## Writing a Strategy
 
-To write a strategy, a new ```.py``` file must be added to the ```strategies``` directory. This should contain a function used to calculate the next move to be taken given the current board state. As an example, look at ```random_strategies.py``` which contains a single function or ```methodical.py``` which contains two strategies.
+To write a strategy, first donwload the content of this repository:
+* look for the green button with "code" or "download" at the top right of the main repository page
+* download the content as a compressed file
+* then unpack it
+
+Open the file ```student_interface.ipynb```. The first cell in this Jupyter Notebook contains the skeleton of a function. Complete this function to define your strategy. By running the second cell, you can play against your strategy to tet how it performs. Running the third cell will assess your strategy (see the assessment section below).
 
 ### Details on Strategies
 
@@ -82,6 +87,8 @@ The board state is a list of lists. Each of the inner lists contains all the ent
 ```
 
 For instance, if the argument holding the state of the board has the variable name ```board```, the value representing the state of the bottom-right position could be found by writing ```board[6][0]``` and the the top-middle value could be found by writing ```board[3][5]```. For each location, the value will be 0 if no player has placed a piece there, 1 if player 1 has, and 2 if player 2 has.
+
+Make sure to return a single integer between 0 and 6 to indicate which column you want to make your move in.
 
 ### Forfeiting the Game
 
@@ -106,10 +113,4 @@ where $M_{\\%}$ is your final mark in %, $n_{f}$ is the number of times your str
 * Your strategy wins half the games and loses half the games without forfeiting: 62.5%
 * Your strategy wins every game: 100%
 
-If you would like to test your strategy against the assessment, the code can be found in ```assessment.py```. It is currently set up to assess the ```random_simple``` strategy function in the file ```random.py``` in the ```strategies``` directory. You will need to set up the code to import your strategy and then modify the line:
-
-```python
-assess(random_strategies.random_simple)
-```
-
-(which can be found near the end of the file) so it passes your strategy function to the ```assess``` function as an argument instead of ```strategies.random_simple```. Assessing your strategy will allow you to view its performance and improve it.
+If you would like to test your strategy against the assessment, run the third code cell in the ```student_interface.ipynb``` Jupyter notebook. When submitting your final strategy, rename this notebook to "FIRSTNAME_SURNAME.ipynb" and submit this notebook only.
