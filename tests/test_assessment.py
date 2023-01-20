@@ -1,5 +1,5 @@
 import unittest
-from assessment import random_opponent
+from assessment.assessor import random_opponent
 
 
 class test_random_opponent(unittest.TestCase):

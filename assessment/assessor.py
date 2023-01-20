@@ -1,4 +1,4 @@
-from run_game import run_game
+from game.run_game import run_game
 from strategies import random_strategies
 import random
 

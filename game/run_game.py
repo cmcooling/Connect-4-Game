@@ -1,11 +1,11 @@
 import copy
 import random
 import time
-from exceptions import InvalidMoveException, MoveExceptionError
+from game.exceptions import InvalidMoveException, MoveExceptionError
 
-from board_printer import print_board
-from function_timeout import timeout
-from victory_check import check_victory
+from game.board_printer import print_board
+from game.function_timeout import timeout
+from game.victory_check import check_victory
 
 
 def run_game(name_1, name_2, function_1, function_2, print_output=True, move_duration=0, max_move_time=0, randomise_first_player=True):

@@ -1,4 +1,4 @@
-from exceptions import InvalidMoveException
+from game.exceptions import InvalidMoveException
 
 
 def manual(board, player_number):

@@ -3,8 +3,8 @@
 import random
 import copy
 # Import the functions we need
-from run_game import add_token
-from victory_check import check_victory
+from game.run_game import add_token
+from game.victory_check import check_victory
 
 
 def pair(board, player_number):

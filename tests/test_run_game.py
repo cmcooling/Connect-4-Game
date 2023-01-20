@@ -1,7 +1,7 @@
 import unittest
-from exceptions import InvalidMoveException
+from game.exceptions import InvalidMoveException
 
-from run_game import add_token, process_turn, run_game
+from game.run_game import add_token, process_turn, run_game
 from strategies import methodical
 
 
