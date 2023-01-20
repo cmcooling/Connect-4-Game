@@ -55,9 +55,10 @@ In the version of the game we will be playing, the first player will be randomly
 ## Writing a Strategy
 
 To write a strategy, first donwload the content of this repository:
-* look for the green button with "code" or "download" at the top right of the main repository page
-* download the content as a compressed file
-* then unpack it
+* look for the green button with "code" or "download" at the top right of the main repository page,
+* click on the "local" tab of the dropdown menu,
+* download the content as a compressed file to a location of your choosing on your computer by clicking "Download ZIP",
+* unpack the zip file.
 
 Open the file ```student_interface.ipynb```. The first cell in this Jupyter Notebook contains the skeleton of a function. Complete this function to define your strategy. By running the second cell, you can play against your strategy to tet how it performs. Running the third cell will assess your strategy (see the assessment section below).
 
