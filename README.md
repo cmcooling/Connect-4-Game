@@ -96,7 +96,7 @@ In the file ```student_interface.ipynb``` you can play against your strategy by 
 
 ## Assessment
 
-If you're using this resource as part of the I-Explore course, the final strategy you submit via Blackboard will be assessed. This will be done by pitting your strategy against a strategy which always picks a random move from a random non-full column. 1000 games will be played, with the player moving first determined randomly for each game. Your strategy will forfeit a game in te cases outlined in the section above. It will be tracked how many games end in a victory for you, a draw, a loss to the opponent without your strategy raising an exception, and the number of times your strategy forfeits by raising an exception. The final mark you receive will be calculated as follows:
+If you're using this resource as part of the I-Explore course, the final strategy you submit via Blackboard will be assessed. This will be done by pitting your strategy against a strategy which always picks a random move from a random non-full column. 1000 games will be played, with the player moving first determined randomly for each game. Your strategy will forfeit a game in the cases outlined in the section above. It will be tracked how many games end in a victory for you, a draw, a loss to the opponent without your strategy raising an exception, and the number of times your strategy forfeits by raising an exception. The final mark you receive will be calculated as follows:
 
 $$ M_{\\%} = \left(\frac{1 - \frac{n_f}{1000} + \left(\frac{n_{w} + \frac{n_{d}}{2}}{1000}\right)^{2}}{2}\right) \times 100\\% $$
 
