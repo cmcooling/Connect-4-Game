@@ -27,7 +27,7 @@ def assess(student_strategy):
         else:
             losses += 1
 
-    mark = 0.5 * (n_match - forfeits) / n_match + 0.5 * ((wins + 0.5 * draws) / n_match) ** 2
+    mark = 0.25 * (n_match - forfeits) / n_match + 0.75 * ((wins + 0.5 * draws) / n_match) ** 3
 
     print("Results\nWins: {}\nDraws: {}\nLosses: {}\nForfeits: {}\nMark: {}".format(wins, draws, losses, forfeits, mark))
 
