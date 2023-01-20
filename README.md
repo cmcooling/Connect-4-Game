@@ -52,22 +52,13 @@ Diagonal victory:
 
 In the version of the game we will be playing, the first player will be randomly selected.
 
-## Running a Game
-
-The easiest way to run a game is by running the ```game_master.py``` file. This is currently set up to pit two of the sample strategies against each other. The output of the game should be visible in the terminal used to run the code. The output will include a turn by turn output of the game-state of the board and will announce a winner.
-
-To play manually against a strategy, change game_master.py to:
-```
-run_game("Left", "Manual", methodical.fill_left_right, manual.manual, move_duration=1, max_move_time=100)
-```
-This asks you to input a move yourself as an integer and press enter. ```max_move_time=100``` gives you a bit more time to move!
-
 ## Writing a Strategy
 
 To write a strategy, first donwload the content of this repository:
-* look for the green button with "code" or "download" at the top right of the main repository page
-* download the content as a compressed file
-* then unpack it
+* look for the green button with "code" or "download" at the top right of the main repository page,
+* click on the "local" tab of the dropdown menu,
+* download the content as a compressed file to a location of your choosing on your computer by clicking "Download ZIP",
+* unpack the zip file.
 
 Open the file ```student_interface.ipynb```. The first cell in this Jupyter Notebook contains the skeleton of a function. Complete this function to define your strategy. By running the second cell, you can play against your strategy to tet how it performs. Running the third cell will assess your strategy (see the assessment section below).
 
@@ -100,9 +91,13 @@ Other than losing the game normally, a strategy can forfeit a game in the follow
 * Taking more than 1 second to return a value
 * Raising an exception when asked for a move
 
+## Playing Against Your Strategy
+
+In the file ```student_interface.ipynb``` you can play against your strategy by running the second code cell. When it's your turn, you will need to enter a value ebtween 0 and 6 to indicate which column you're chosing to place your token into. Note that, every time you update your strategy, you will need to re-run the first code cell to update the version of the function ```my_strategy``` in use.
+
 ## Assessment
 
-If you're using this resource as part of the I-Explore course, the final strategy you submit via Blackboard will be assessed. This will be done by pitting your strategy against a strategy which always picks a random move from a random non-full column. 1000 games will be played, with the player moving first determined randomly for each game. Your strategy will forfeit a game in te cases outlined in the section above. It will be tracked how many games end in a victory for you, a draw, a loss to the opponent without your strategy raising an exception, and the number of times your strategy forfeits by raising an exception. The final mark you receive will be calculated as follows:
+If you're using this resource as part of the I-Explore course, the final strategy you submit via Blackboard will be assessed. This will be done by pitting your strategy against a strategy which always picks a random move from a random non-full column. 1000 games will be played, with the player moving first determined randomly for each game. Your strategy will forfeit a game in the cases outlined in the section above. It will be tracked how many games end in a victory for you, a draw, a loss to the opponent without your strategy raising an exception, and the number of times your strategy forfeits by raising an exception. The final mark you receive will be calculated as follows:
 
 $$ M_{\\%} = \left(\frac{1 - \frac{n_f}{1000} + \left(\frac{n_{w} + \frac{n_{d}}{2}}{1000}\right)^{2}}{2}\right) \times 100\\% $$
 
