@@ -79,6 +79,19 @@ The board state is a list of lists. Each of the inner lists contains all the ent
 
 For instance, if the argument holding the state of the board has the variable name ```board```, the value representing the state of the bottom-right position could be found by writing ```board[6][0]``` and the the top-middle value could be found by writing ```board[3][5]```. For each location, the value will be 0 if no player has placed a piece there, 1 if player 1 has, and 2 if player 2 has.
 
+For instance, after both players ahve taken two moves, the values of the variable of ```board``` may be:
+
+```
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+0 0 0 0 0 0 0
+1 0 0 0 0 0 0
+2 0 0 2 0 1 0
+```
+
+In this case, ```board[0][1]``` and ```board[5][0]``` are both ```1```, while ```board [0][0]``` and ```board[3][0]``` are both ```2```. ```board[i][j]``` is zero for all other values of ```i``` and ```j```.
+
 Make sure to return a single integer between 0 and 6 to indicate which column you want to make your move in.
 
 ### Forfeiting the Game
