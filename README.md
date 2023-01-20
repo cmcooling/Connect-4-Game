@@ -52,16 +52,6 @@ Diagonal victory:
 
 In the version of the game we will be playing, the first player will be randomly selected.
 
-## Running a Game
-
-The easiest way to run a game is by running the ```game_master.py``` file. This is currently set up to pit two of the sample strategies against each other. The output of the game should be visible in the terminal used to run the code. The output will include a turn by turn output of the game-state of the board and will announce a winner.
-
-To play manually against a strategy, change game_master.py to:
-```
-run_game("Left", "Manual", methodical.fill_left_right, manual.manual, move_duration=1, max_move_time=100)
-```
-This asks you to input a move yourself as an integer and press enter. ```max_move_time=100``` gives you a bit more time to move!
-
 ## Writing a Strategy
 
 To write a strategy, first donwload the content of this repository:
@@ -99,6 +89,10 @@ Other than losing the game normally, a strategy can forfeit a game in the follow
 * Returning an integer relating to a column which is full
 * Taking more than 1 second to return a value
 * Raising an exception when asked for a move
+
+## Playing Against Your Strategy
+
+In the file ```student_interface.ipynb``` you can play against your strategy by running the second code cell. When it's your turn, you will need to enter a value ebtween 0 and 6 to indicate which column you're chosing to place your token into. Note that, every time you update your strategy, you will need to re-run the first code cell to update the version of the function ```my_strategy``` in use.
 
 ## Assessment
 
