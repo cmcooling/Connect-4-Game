@@ -74,8 +74,8 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
                 return 1, True
 
         if print_output:
-            print("X {}".format(name_1))
-            print("O {}".format(name_2))
+            print("1 {}".format(name_1))
+            print("2 {}".format(name_2))
             print_board(board)
             print_victory(victory, name_1, name_2)
 
