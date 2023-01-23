@@ -79,7 +79,7 @@ The board state is a list of lists. Each of the inner lists contains all the ent
 
 For instance, if the argument holding the state of the board has the variable name ```board```, the value representing the state of the bottom-right position could be found by writing ```board[6][0]``` and the the top-middle value could be found by writing ```board[3][5]```. For each location, the value will be 0 if no player has placed a piece there, 1 if player 1 has, and 2 if player 2 has.
 
-For instance, after both players ahve taken two moves, the values of the variable of ```board``` may be:
+For instance, after both players have taken two moves, the values of the variable of ```board``` may be:
 
 ```
 0 0 0 0 0 0 0
@@ -108,11 +108,13 @@ Other than losing the game normally, a strategy can forfeit a game in the follow
 
 In the file ```student_interface.ipynb``` you can play against your strategy by running the second code cell. When it's your turn, you will need to enter a value ebtween 0 and 6 to indicate which column you're chosing to place your token into. Note that, every time you update your strategy, you will need to re-run the first code cell to update the version of the function ```my_strategy``` in use.
 
+
+
 ## Assessment
 
 If you're using this resource as part of the I-Explore course, the final strategy you submit via Blackboard will be assessed. This will be done by pitting your strategy against a strategy which always picks a random move from a random non-full column. 1000 games will be played, with the player moving first determined randomly for each game. Your strategy will forfeit a game in the cases outlined in the section above. It will be tracked how many games end in a victory for you, a draw, a loss to the opponent without your strategy raising an exception, and the number of times your strategy forfeits by raising an exception. The final mark you receive will be calculated as follows:
 
-$$ M_{\\%} = \left(0.25\left(1 - \frac{n_f}{1000}\right) + 0.75\left(\frac{n_{w} + \frac{n_{d}}{2}}{1000}\right)^{2}\right) \times 100\\% $$
+$$ M_{\\%} = \left(0.25\left(1 - \frac{n_f}{1000}\right) + 0.75\left(\frac{n_{w} + \frac{n_{d}}{2}}{1000}\right)^{3}\right) \times 100\\% $$
 
 where $M_{\\%}$ is your final mark in %, $n_{f}$ is the number of times your strategy forfeits a game, $n_{w}$ is the number of games your strategy wins a a game, and $n_{d}$ is the number of times your strategy draws. Some example marks include:
 
@@ -121,4 +123,4 @@ where $M_{\\%}$ is your final mark in %, $n_{f}$ is the number of times your str
 * Your strategy wins half the games and loses half the games without forfeiting: 62.5%
 * Your strategy wins every game: 100%
 
-If you would like to test your strategy against the assessment, run the third code cell in the ```student_interface.ipynb``` Jupyter notebook. When submitting your final strategy, rename this notebook to "FIRSTNAME_SURNAME.ipynb" and submit this notebook only.
+If you would like to test your strategy against the assessment, run the final code cell in the ```student_interface.ipynb``` Jupyter notebook. You can also observe your strategy play a single match against the opponent you will face in the assessment by running the third code cell in that notebook. When submitting your final strategy, rename this notebook to "FIRSTNAME_SURNAME.ipynb" and submit this notebook only.
