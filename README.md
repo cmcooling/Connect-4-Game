@@ -123,7 +123,13 @@ where $M_{\\%}$ is your final mark in %, $n_{f}$ is the number of times your str
 * Your strategy wins half the games and loses half the games without forfeiting: 62.5%
 * Your strategy wins every game: 100%
 
-If you would like to test your strategy against the assessment, run the final code cell in the ```student_interface.ipynb``` Jupyter notebook. You can also observe your strategy play a single match against the opponent you will face in the assessment by running the third code cell in that notebook. When submitting your final strategy, rename this notebook to "FIRSTNAME_SURNAME.ipynb" and submit this notebook only. We expect you to spend 3-4 hours on this assignment.
+If you would like to test your strategy against the assessment, run the final code cell in the ```student_interface.ipynb``` Jupyter notebook. You can also observe your strategy play a single match against the opponent you will face in the assessment by running the third code cell in that notebook. 
+
+## Submission
+
+When submitting your final strategy, rename this notebook to "FIRSTNAME_SURNAME.ipynb" and submit this notebook only. We expect you to spend 3-5 hours on this assignment. The first cell in the notebook you submit must contain the entirety of your strategy. It may contain multiple functions if you wish. You may import and use any modules from the standard library (e.g. the ```math``` module). You may not use any modules that require separate installation (e.g. ```numpy```, ```pandas```, etc).
+
+Your strategy will be played against the strategies developed by other students in the in-person session. If you would prefer your strategy to be anonymous, please note this in a comment at the top of the code cell containing your strategy and provide a pseudonym you would like the strategy to compete under. This will allow you to see how your strategy performs, but others will not know it's your strategy.
 
 ## Tips
 
