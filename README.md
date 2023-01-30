@@ -123,4 +123,16 @@ where $M_{\\%}$ is your final mark in %, $n_{f}$ is the number of times your str
 * Your strategy wins half the games and loses half the games without forfeiting: 62.5%
 * Your strategy wins every game: 100%
 
-If you would like to test your strategy against the assessment, run the final code cell in the ```student_interface.ipynb``` Jupyter notebook. You can also observe your strategy play a single match against the opponent you will face in the assessment by running the third code cell in that notebook. When submitting your final strategy, rename this notebook to "FIRSTNAME_SURNAME.ipynb" and submit this notebook only.
+If you would like to test your strategy against the assessment, run the final code cell in the ```student_interface.ipynb``` Jupyter notebook. You can also observe your strategy play a single match against the opponent you will face in the assessment by running the third code cell in that notebook. When submitting your final strategy, rename this notebook to "FIRSTNAME_SURNAME.ipynb" and submit this notebook only. We expect you to spend 3-4 hours on this assignment.
+
+## Tips
+
+There are a number of ways you could go about writing this code. If you're stuck, consider the following:
+
+* How can I prevent my code going in a column which is full?
+* If an available move will win me the game, how can I detect it and select that column?
+* If an available move will win my opponent the game, how can I detect it and select that column to block their winning move?
+* How can I detect when going in a particular column will allow my opponent to gon in the same column and make a winning move?
+* If there are no opportunities or threats of an immediate victories, how can I best progress toward a victory state, or hinder my opponent?
+
+If you're new to programming, don't worry about making your solution perfect. Focus on code which is going to be simple to implement but have a high impact on the performance of your strategy.
