@@ -122,7 +122,7 @@ where $M_{\\%}$ is your final mark in %, $n_{f}$ is the number of times your str
 * Your strategy wins 75% of the games and loses 25% of the games without forfeiting: 56.6%
 * Your strategy wins every game: 100%
 
-The figure below shows some sample mars you could receive for different numbers of wins, draws and forfeits.
+The figure below shows some sample mars you could receive for different numbers of wins, and forfeits (the figure assumes 0 draws).
 
 ![Sample Marks](https://github.com/coolernato/Connect-4-Game/blob/master/readme_resources/marks_example_plot.png?raw=true)
 
