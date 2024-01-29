@@ -119,7 +119,7 @@ where $M_{\\%}$ is your final mark in %, $n_{f}$ is the number of times your str
 
 * Your strategy forfeits every game: 0%
 * Your strategy loses every game without forfeiting: 25%
-* Your strategy wins 75% of the games and 25% of the games without forfeiting: 56.6%
+* Your strategy wins 75% of the games and loses 25% of the games without forfeiting: 56.6%
 * Your strategy wins every game: 100%
 
 The figure below shows some sample mars you could receive for different numbers of wins, draws and forfeits.
