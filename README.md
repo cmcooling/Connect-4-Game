@@ -54,7 +54,7 @@ In the version of the game we will be playing, the first player will be randomly
 
 ## Writing a Strategy
 
-To write a strategy, first donwload the content of this repository:
+To write a strategy, first download the content of this repository:
 * look for the green button with "code" or "download" at the top right of the main repository page,
 * click on the "local" tab of the dropdown menu,
 * download the content as a compressed file to a location of your choosing on your computer by clicking "Download ZIP",
@@ -106,8 +106,7 @@ Other than losing the game normally, a strategy can forfeit a game in the follow
 
 ## Playing Against Your Strategy
 
-In the file ```student_interface.ipynb``` you can play against your strategy by running the second code cell. When it's your turn, you will need to enter a value ebtween 0 and 6 to indicate which column you're chosing to place your token into. Note that, every time you update your strategy, you will need to re-run the first code cell to update the version of the function ```my_strategy``` in use.
-
+In the file ```student_interface.ipynb``` you can play against your strategy by running the second code cell. When it's your turn, you will need to enter a value between 0 and 6 to indicate which column you're choosing to place your token into. Note that, every time you update your strategy, you will need to re-run the first code cell to update the version of the function ```my_strategy``` in use.
 
 
 ## Assessment
