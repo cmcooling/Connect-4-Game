@@ -7,6 +7,10 @@ def random_opponent(board, player_number):
     return(random.choice(tuple(i_col for i_col, col in enumerate(board) if not min(col))))
 
 
+def calculate_mark(wins, draws, forfeits, n_match):
+    return 0.25 * (n_match - forfeits) / n_match + 0.75 * ((wins + 0.5 * draws) / n_match) ** 3
+
+
 def assess(student_strategy):
     n_match = 1000
 
@@ -31,7 +35,7 @@ def assess(student_strategy):
 
     print(" " * 100)
 
-    mark = 0.25 * (n_match - forfeits) / n_match + 0.75 * ((wins + 0.5 * draws) / n_match) ** 3
+    mark = calculate_mark(wins, draws, forfeits, n_match)
 
     print("Results\nWins: {}\nDraws: {}\nLosses: {}\nForfeits: {}\nMark: {}%".format(wins, draws, losses, forfeits, round(mark * 100, 2)))
 

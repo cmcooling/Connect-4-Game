@@ -122,6 +122,10 @@ where $M_{\\%}$ is your final mark in %, $n_{f}$ is the number of times your str
 * Your strategy wins half the games and loses half the games without forfeiting: 62.5%
 * Your strategy wins every game: 100%
 
+The figure below shows some sample mars you could receive for different numbers of wins, draws and forfeits.
+
+![Sample Marks](https://github.com/coolernato/Connect-4-Game/blob/master/readme_resources/marks_example.png?raw=true)
+
 If you would like to test your strategy against the assessment, run the final code cell in the ```student_interface.ipynb``` Jupyter notebook. You can also observe your strategy play a single match against the opponent you will face in the assessment by running the third code cell in that notebook. 
 
 ## Submission
