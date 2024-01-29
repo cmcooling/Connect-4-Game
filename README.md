@@ -118,15 +118,13 @@ $$ M_{\\%} = \left(0.25\left(1 - \frac{n_f}{1000}\right) + 0.75\left(\frac{n_{w}
 where $M_{\\%}$ is your final mark in %, $n_{f}$ is the number of times your strategy forfeits a game, $n_{w}$ is the number of games your strategy wins a a game, and $n_{d}$ is the number of times your strategy draws. Some example marks include:
 
 * Your strategy forfeits every game: 0%
-* Your strategy loses every game without forfeiting: 50%
-* Your strategy wins half the games and loses half the games without forfeiting: 62.5%
+* Your strategy loses every game without forfeiting: 25%
+* Your strategy wins 75% of the games and 25% of the games without forfeiting: 56.6%
 * Your strategy wins every game: 100%
-<!---
 
 The figure below shows some sample mars you could receive for different numbers of wins, draws and forfeits.
 
 ![Sample Marks](https://github.com/coolernato/Connect-4-Game/blob/master/readme_resources/marks_example_plot.png?raw=true)
--->
 
 If you would like to test your strategy against the assessment, run the final code cell in the ```student_interface.ipynb``` Jupyter notebook. You can also observe your strategy play a single match against the opponent you will face in the assessment by running the third code cell in that notebook. 
 
