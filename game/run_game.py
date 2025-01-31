@@ -18,7 +18,7 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
     (param) move_duration (float)(optional, default=0): The time the code will pause for each move. If negative, will wait for enter to be pressed
     (param) max_move_time (float)(optional, default=0): The maximum time a move may be considered for in s(0 means it won't be limited)
     (param) randomise_first_player (bool)(optional, default=True): Whether the first player will be randomly chosen
-    (return) Will be a tuple with two values. The firs denotes the winner. 0 for no win, 1 for player 1 win, or 2 for player 2 win. The second value will be True if the game ended in a forfeit and False if not.'''
+    (return) Will be a tuple with two values. The firs denotes the winner: -1 for a draw, 1 for player 1 win, or 2 for player 2 win. The second value will be True if the game ended in a forfeit and False if not.'''
     # Create the board
     board = [[0] * 6 for i in range(7)]
 
