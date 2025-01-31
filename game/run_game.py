@@ -86,6 +86,8 @@ def run_game(name_1, name_2, function_1, function_2, print_output=True, move_dur
             time.sleep(move_duration)
         else:
             input("Press Enter to continue...")
+    else:
+        return 0, False
 
 
 def process_turn(board, strategy, player_number, player_name, print_output):
