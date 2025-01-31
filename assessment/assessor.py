@@ -26,7 +26,7 @@ def assess(student_strategy):
 
         if result[0] == 1:
             wins += 1
-        elif result[0] == 0:
+        elif result[0] == -1:
             draws += 1
         elif result[1]:
             forfeits += 1
