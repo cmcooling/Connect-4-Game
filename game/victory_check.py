@@ -101,7 +101,7 @@ def check_draw(board):
 def check_victory(board):
     '''Checks an entire board for any type of victory
     (param) board ([[int]*6]*7): A board
-    (return) Will be 0 for no win, 1 for player 1 win, or 2 for player 2 win'''
+    (return) Will be 0 for no win, 1 for player 1 win, 2 for player 2 win, or -1 for a draw'''
     victory = check_vertical_victory(board)
     if victory:
         return victory
